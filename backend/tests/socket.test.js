@@ -1,3 +1,4 @@
+require('./setup');
 const http = require('http');
 const { Server } = require('socket.io');
 const Client = require('socket.io-client');
@@ -7,8 +8,6 @@ const User = require('../src/models/User');
 const Room = require('../src/models/Room');
 const Message = require('../src/models/Message');
 const { generateToken } = require('../src/controllers/authController');
-
-require('./setup');
 
 describe('Socket.io Real-Time Integration Tests', () => {
   let httpServer;

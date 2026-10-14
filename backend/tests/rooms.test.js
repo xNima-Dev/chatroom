@@ -1,9 +1,8 @@
+require('./setup');
 const request = require('supertest');
 const app = require('../src/app');
 const Room = require('../src/models/Room');
 const Message = require('../src/models/Message');
-
-require('./setup');
 
 describe('Room & Message REST API Integration Tests', () => {
   let user1Token;

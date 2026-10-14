@@ -1,8 +1,7 @@
+require('./setup');
 const request = require('supertest');
 const app = require('../src/app');
 const User = require('../src/models/User');
-
-require('./setup');
 
 describe('Auth REST API Integration Tests', () => {
   const sampleUser = {
