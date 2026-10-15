@@ -131,6 +131,32 @@ npm run build
 
 ---
 
+## 🌐 Production Deployment Guide
+
+### Option 1: Render (1-Click Blueprint)
+The repository includes `render.yaml` for automatic deployment of both backend and frontend:
+1. Connect your GitHub repository to [Render](https://render.com).
+2. Create a new **Blueprint** and select this repo.
+3. Configure the environment variables:
+   - `MONGODB_URI`: Your MongoDB Atlas cluster connection URI.
+   - `CLIENT_URL`: The frontend production URL provided by Render.
+   - `VITE_API_URL`: The backend production URL provided by Render.
+
+### Option 2: Vercel (Frontend) + Render (Backend)
+1. **Database**: Create a free M0 cluster on [MongoDB Atlas](https://www.mongodb.com/atlas), whitelist `0.0.0.0/0`, and copy the connection string.
+2. **Backend (Render Web Service)**:
+   - Root Directory: `backend`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+   - Add Environment Variables: `MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL` (your Vercel domain), `NODE_ENV=production`.
+3. **Frontend (Vercel)**:
+   - Root Directory: `frontend`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Add Environment Variable: `VITE_API_URL` (your Render backend URL).
+
+---
+
 ## 🧪 Running Automated Tests
 
 The backend test suite is built with **Jest**, **Supertest**, and **mongodb-memory-server**:

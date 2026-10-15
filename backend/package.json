@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
+    "db:start": "mkdir -p data/db && /Users/mac/.cache/mongodb-binaries/mongod-x64-darwin-7.0.14 --dbpath data/db --port 27017",
+    "db:stop": "pkill -f mongod",
     "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "dependencies": {
